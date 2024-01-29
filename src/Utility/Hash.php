@@ -413,7 +413,7 @@ class Hash
 
         foreach ($data as $k => $v) {
             $match = static::_matchToken($k, $token);
-            if ($match && is_array($v)) {
+            if ($match && (is_array($v) || $v instanceof ArrayAccess)) {
                 if ($conditions) {
                     if (static::_matches($v, $conditions)) {
                         if ($nextPath !== '') {
